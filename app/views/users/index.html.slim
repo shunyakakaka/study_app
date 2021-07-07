@@ -1,6 +1,7 @@
 .ui.container
   .ui.grid
     .column.ui.right.aligned.header
+      = link_to "ログアウト", logout_path, method: :delete, class: "ui button"
       = link_to "マイページ", users_path, class: "ui button"
       
 .ui.container

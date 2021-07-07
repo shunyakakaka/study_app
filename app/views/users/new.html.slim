@@ -1,15 +1,16 @@
-.ui.form
-  - form_with model: @user do |f|
-    .filed
-      - f.label :name
-      - f.text_filed :name
-    .filed
-      - f.label :sex
-      - f.text_filed :sex
-    .filed
-      - f.label :password
-      - f.password_filed :password
-    .filed
-      - f.label :password_confirmation
-      - f.password_filed :password_confirmation
-    - f.submit "登録", users_path, class: "ui blue button"
+.ui.container
+  .ui.form
+    = form_with model: @user do |f|
+      .field
+        = f.label :name
+        = f.text_field :name
+      .field
+        = f.label :sex
+        = f.text_field :sex
+      .field
+        = f.label :password
+        = f.password_field :password
+      .field
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation
+      = f.submit "登録", class: "ui blue button"

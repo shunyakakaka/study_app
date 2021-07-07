@@ -58,3 +58,4 @@ gem "kaminari"
 gem 'semantic-ui-sass'
 gem 'slim-rails'
 gem 'html2slim'
+gem 'pry-rails'

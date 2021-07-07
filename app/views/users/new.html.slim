@@ -1,2 +1,15 @@
-h1 Users#new
-p Find me in app/views/users/new.html.slim
+.ui.form
+  - form_with model: @user do |f|
+    .filed
+      - f.label :name
+      - f.text_filed :name
+    .filed
+      - f.label :sex
+      - f.text_filed :sex
+    .filed
+      - f.label :password
+      - f.password_filed :password
+    .filed
+      - f.label :password_confirmation
+      - f.password_filed :password_confirmation
+    - f.submit "登録", users_path, class: "ui blue button"

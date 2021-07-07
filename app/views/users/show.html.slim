@@ -1,2 +1,35 @@
-h1 Users#show
-p Find me in app/views/users/show.html.slim
+= render partial: "header_form"
+.ui.container
+  .ui.grid
+    .sixteen.wide.column
+      h1.ui.center.aligned.header = "#{@user.name}さんの情報"
+  .ui.placeholder.segment
+    .ui.vertical.divider
+    .ui.two.column.grid
+      .column
+        .ui.two.column.grid
+          .column
+            h5 ニックネーム
+          .column
+            h3 = @user.name
+        .ui.two.column.grid
+          .column
+            h5  年齢
+          .column
+            h3 = @user.age
+        .ui.two.column.grid
+          .column
+            h5  性別
+          .column
+            h3 = @user.sex
+        .ui.two.column.grid
+          .column
+            h5  職業
+          .column
+            h3 = @user.job
+      .column
+        .ui.grid.ui.center.aligned.header
+          h5 自己紹介
+        .ui.grid.ui.center.aligned.header
+          p = @user.description
+        

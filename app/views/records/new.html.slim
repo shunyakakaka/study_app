@@ -1,2 +1,10 @@
-h1 Records#new
-p Find me in app/views/records/new.html.slim
+.ui.container
+  .ui.form
+    = form_with model: @record do |f|
+      .field
+        = f.label :time
+        = f.text_field :time
+      .field
+        = f.label :task_kind
+        = f.text_field :task_kind
+      = f.submit "記録", class: "ui blue button"

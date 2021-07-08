@@ -6,9 +6,11 @@
 .ui.container
   .ui.grid
     .column.ui.right.aligned.header
-      = link_to "ログアウト", logout_path, method: :delete, class: "ui button"
+      = link_to "記録する", new_record_path, class: "ui blue button"
       = link_to "マイページ", user_path(@current_user), class: "ui button"
-      
+
+
+
 .ui.container
   .ui.grid
     .sixteen.wide.column
@@ -20,4 +22,5 @@
       .thirteen.wide.column
         h3.ui.center.aligned.header = link_to "#{user.name}", user_path(user.id)
     .ui.divider
+  
   

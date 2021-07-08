@@ -1,0 +1,33 @@
+= render partial: "users/header_form"
+.ui.container
+  - if flash[:notice]
+    .ui.success.message.ui.center.aligned.header
+      = flash[:notice]
+
+.ui.container
+  .ui.three.column.grid
+    .column
+      h5.ui.center.aligned.header 日付
+    .column
+      h5.ui.center.aligned.header 内容
+    .column
+      h5.ui.center.aligned.header 時間
+  .ui.divider
+
+  - @sum = 0
+  - @records.each do |record|
+    - @sum += record.time
+    .ui.three.column.grid
+      .column
+        h3.ui.center.aligned.header = record.created_at
+      .column
+        h3.ui.center.aligned.header = record.task_kind
+      .column
+        h3.ui.center.aligned.header = record.time 
+    .ui.divider
+  .ui.three.column.grid
+    .column
+    .column
+      h5.ui.right.aligned.header 合計
+    .column
+      h5.ui.center.aligned.header = "#{@sum}分"

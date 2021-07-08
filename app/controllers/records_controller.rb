@@ -1,14 +1,15 @@
 class RecordsController < ApplicationController
 
   def index
+    @records = @current_user.records.all
   end
 
   def new
-    @record = Record.new
+    @record = @current_user.records.new
   end
 
   def create
-    @record = Record.create(record_params)
+    @record = @current_user.records.create(record_params)
     flash[:notice] = "記録しました"
     redirect_to records_path
   end

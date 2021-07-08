@@ -1,4 +1,9 @@
 .ui.container
+  - if flash[:notice]
+    .ui.success.message.ui.center.aligned.header
+      = flash[:notice]
+
+.ui.container
   .ui.form
     = form_with scope: :session do |f|
       .field
@@ -8,3 +13,4 @@
         = f.label :password
         = f.password_field :password
       = f.submit "ログイン", class: "ui blue button"
+      = link_to "ユーザー登録", new_user_path, class: "ui button"

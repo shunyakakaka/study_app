@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        age: 年齢
+        sex: 性別
+        job: 職業
+        password: パスワード
+        password_confirmation: パスワード(確認)
+      record:
+        time: 時間
+        task_kind: 勉強内容

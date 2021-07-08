@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_to users_path
     else
       flash[:notice] = "正しく入力してください"
-      render :new
+      redirect_to login_path
     end
   end
 

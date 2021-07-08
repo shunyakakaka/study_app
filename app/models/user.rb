@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true, length: {maximum: 10}
   validates :sex, allow_blank: true, inclusion: {
-    in: %w("男", "女"),
+    in: %w(男 女),
     message: "は「男」か「女」で入力してください"
   }
   validates :job, allow_blank: true, length: {maximum: 30}

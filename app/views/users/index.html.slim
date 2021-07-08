@@ -8,7 +8,7 @@
     .column.ui.right.aligned.header
       = link_to "記録する", new_record_path, class: "ui blue button"
       = link_to "マイページ", user_path(@current_user), class: "ui button"
-      = link_to "ログアウト", logout_path, method: :delete, class: "ui red button"
+      = link_to "ログアウト", logout_path, method: :delete, data: {confirm: "ログアウトしますか？"}, class: "ui red button"
 
 
 

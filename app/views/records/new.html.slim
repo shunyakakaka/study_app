@@ -1,3 +1,10 @@
+.ui.container 
+  - if flash[:error_message]
+    .ui.negative.message.ui.center.aligned.header
+      - flash[:error_message].each do |msg|
+        ul
+          li = msg
+
 .ui.container
   .ui.form
     = form_with model: @record do |f|

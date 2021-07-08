@@ -1,4 +1,8 @@
 = render partial: "header_form"
+.ui.container 
+  - if flash[:notice]
+    .ui.success.message.ui.center.aligned.header
+      = flash[:notice]
 .ui.container
   .ui.grid
     .sixteen.wide.column

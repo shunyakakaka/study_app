@@ -9,5 +9,5 @@ ja:
         password: パスワード
         password_confirmation: パスワード(確認)
       record:
-        time: 時間
+        time: 時間（分）
         task_kind: 勉強内容

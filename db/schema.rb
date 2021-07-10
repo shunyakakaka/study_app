@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(version: 2021_07_08_075643) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "day_time"
-    t.integer "week_time"
-    t.integer "month_time"
-    t.integer "total_time"
+    t.integer "day_time", default: 0
+    t.integer "week_time", default: 0
+    t.integer "month_time", default: 0
+    t.integer "total_time", default: 0
     t.index ["user_id"], name: "index_records_on_user_id"
   end
 

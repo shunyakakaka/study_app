@@ -7,10 +7,10 @@
   .ui.form
     = form_with scope: :session do |f|
       .field
-        = f.label :名前
-        = f.text_field :名前
+        = f.label :name, "名前"
+        = f.text_field :name
       .field
-        = f.label :パスワード
-        = f.password_field :パスワード
+        = f.label :password, "パスワード"
+        = f.password_field :password
       = f.submit "ログイン", class: "ui blue button"
       = link_to "ユーザー登録", new_user_path, class: "ui button"

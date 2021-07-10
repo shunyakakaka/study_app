@@ -19,9 +19,14 @@
   - @users.each_with_index do |user, index|
     .ui.grid
       .three.wide.column
-        h3.ui.right.aligned.header = "#{index+1}位"
-      .thirteen.wide.column
+        h3.ui.right.aligned.header = "#{user.overall_ranking}位"
+      .nine.wide.column
         h3.ui.center.aligned.header = link_to "#{user.name}", user_path(user.id)
+      .four.wide.column
+        - if user.records.all.last == nil
+          h3.ui.center.aligned.header 0
+        - else
+          h3.ui.center.aligned.header = "#{user.records.all.last.total_time}分"
     .ui.divider
   
   

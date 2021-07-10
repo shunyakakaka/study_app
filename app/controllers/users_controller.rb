@@ -3,6 +3,21 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @users.each_with_index do |user, index|
+      #ユーザーの記録がひとつもない時@usersのlengthを格納している
+      if user.records.all.last == nil 
+        user.overall_ranking = @users.length
+      end
+      sum += user.overall_ranking
+      if index == @users.length - 1
+        if sum = user.overall_ranking * @users.length 
+          @users.each do |user|
+            user.overall_ranking = 1
+          end
+        end
+      end
+    end
+    binding.pry
   end
 
   def new

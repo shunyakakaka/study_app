@@ -7,8 +7,20 @@ class UsersController < ApplicationController
       #ユーザーの記録がひとつもない時@usersのlengthを格納している
       if user.records.all.last == nil 
         user.overall_ranking = @users.length
+      else  
+      #ユーザーの記録がある時overall_rankingに1を代入している
+        user.overall_ranking = 1
       end
+      #ユーザーの記録があるもの同士のtotal_timeを比べてoverall_rankingの値を決める
+      @users.each_with_index |user_2, index_2|
+        next if  user_2.overall_ranking == @users.length
+        
+      end
+    
+
       sum += user.overall_ranking
+      
+      #配列の最後の処理
       if index == @users.length - 1
         if sum = user.overall_ranking * @users.length 
           @users.each do |user|

@@ -3,33 +3,49 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @users.each_with_index do |user, index|
-      #ユーザーの記録がひとつもない時@usersのlengthを格納している
-      if user.records.all.last == nil 
-        user.overall_ranking = @users.length
-      else  
-      #ユーザーの記録がある時overall_rankingに1を代入している
-        user.overall_ranking = 1
-      end
-      #ユーザーの記録があるもの同士のtotal_timeを比べてoverall_rankingの値を決める
-      @users.each_with_index |user_2, index_2|
-        next if  user_2.overall_ranking == @users.length
-        
-      end
+    sum = 0
+    i = 0
+    k = 0
+    no_records_user = 0
+    first_index = 0
+    passed_user_index = []
+    has_records_user = []
+    no_records_user = []
+    same_number = []
     
-
-      sum += user.overall_ranking
-      
-      #配列の最後の処理
-      if index == @users.length - 1
-        if sum = user.overall_ranking * @users.length 
-          @users.each do |user|
-            user.overall_ranking = 1
-          end
-        end
+    @users.each_with_index do |user, index|
+      #レコードテーブルを持ったユーザーのとレコードテーブルを持たないユーザーを分ている
+      if user.records.all.last == nil
+        no_records_user << user
+      else
+        has_records_user << user
       end
     end
-    binding.pry
+    has_records_user = has_records_user.sort{|a, b| b.records.all.last.total_time <=> a.records.all.last.total_time}
+    @users = has_records_user | no_records_user
+    @users.each_with_index do |user, index|
+      if user.records.all.last == nil 
+        if @users[index + 1] != nil
+          @users[index..@users.length - 1].each do |user|
+            user.overall_ranking += index + 1
+          end
+        else
+          user.overall_ranking += index + 1
+        end
+        break
+      elsif index == 0
+        user.overall_ranking += index + 1
+        k = user
+        next
+      elsif user.records.all.last.total_time == k.records.all.last.total_time
+        user.overall_ranking = k.overall_ranking
+      else
+        user.overall_ranking += index + 1
+      end
+      k = user
+
+    end
+
   end
 
   def new

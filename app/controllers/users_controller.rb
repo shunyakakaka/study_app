@@ -43,9 +43,7 @@ class UsersController < ApplicationController
         user.overall_ranking += index + 1
       end
       k = user
-
     end
-
   end
 
   def new
@@ -67,6 +65,7 @@ class UsersController < ApplicationController
     
   def show
     @user = User.find(params[:id])
+    @records = @user.records.all
   end
 
   def edit
@@ -74,11 +73,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    binding.pry
     @user = current_user
     if @user.update(user_params)
       flash[:notice] = "編集しました"
-      redirect_to user_path(current_user)
+      redirect_to user_path(@user)
     else
       flash[:error_message] = @user.errors.full_messages
       flash[:user] = @user

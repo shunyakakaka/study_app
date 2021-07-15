@@ -6,6 +6,11 @@
           li = msg
 
 .ui.container
+  .ui.grid
+    .column
+      h2.ui.center.aligned.header ユーザー登録画面
+
+.ui.container
   .ui.form
     = form_with model: @user do |f|
       .field
@@ -30,3 +35,4 @@
         = f.label :password_confirmation
         = f.password_field :password_confirmation
       = f.submit "登録", class: "ui blue button"
+      = link_to "戻る", root_path, class: "ui button"

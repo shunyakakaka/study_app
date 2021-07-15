@@ -5,7 +5,7 @@
       = flash[:notice]
 .ui.container
   .ui.grid
-    .sixteen.wide.column
+    .column
       h1.ui.center.aligned.header = "#{@user.name}さんの情報"
   .ui.placeholder.segment
     .ui.vertical.divider
@@ -35,10 +35,9 @@
         .ui.grid.ui.center.aligned.header
           h5 自己紹介
         .ui.grid.ui.center.aligned.header
-          p = @user.description
+          p = simple_format(@user.description)
   - if current_user.id == @user.id
     .ui.grid
       .column.ui.center.aligned.header
         = link_to "編集", edit_user_path(@current_user), class: "ui button"
-
-        
+  = render partial: "records/index"

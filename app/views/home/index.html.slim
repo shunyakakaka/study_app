@@ -1,0 +1,15 @@
+.ui.container
+  .ui.grid
+    .column
+      .ui.message
+        h1.ui.center.aligned.header Study Record
+        p このアプリは勉強記録アプリです
+        p 他のユーザーと競い合うことでモチベーションを上げていきましょう！
+        p アプリを使用するためにはログインまたはユーザー登録をしてください
+  .ui.grid
+    .three.column.row
+      .column.ui.right.aligned.header
+        = link_to "ログインする", login_path, class: "ui blue button"
+      .column
+        = link_to "ユーザー登録", new_user_path, class: "ui blue button"
+      .column

@@ -1,7 +1,10 @@
 .ui.container
   .ui.grid
     .column.ui.right.aligned.header
-      = link_to "記録する", new_record_path, class: "ui blue button"
+      - if current_page?(new_record_path)
+        = link_to "マイページ", user_path(@current_user), class: "ui button"
+      - else
+        = link_to "記録する", new_record_path, class: "ui blue button"
       - if current_page?(users_path)
         = link_to "マイページ", user_path(@current_user), class: "ui button"
       - else

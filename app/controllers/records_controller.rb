@@ -15,7 +15,7 @@ class RecordsController < ApplicationController
       if @current_user.records.all.length == 0
         @record.total_time = @record.time
         @record.save
-        redirect_to users_path
+        redirect_to user_path(@current_user)
       else
         before_record = @current_user.records.all.last
         #@record.total_timeはnilであるため0を代入しないと計算できない
@@ -25,7 +25,7 @@ class RecordsController < ApplicationController
         @record.total_time += @record.time
         @record.save
         flash[:notice] = "記録しました"
-        redirect_to users_path
+        redirect_to user_path(@current_user)
       end
     else
       flash[:error_message] = @record.errors.full_messages

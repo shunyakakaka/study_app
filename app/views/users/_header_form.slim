@@ -1,6 +1,9 @@
 .ui.container
   .ui.grid
     .column.ui.right.aligned.header
-      = link_to "ランキング", users_path, class: "ui button"
-      = link_to "マイページ", user_path(@current_user), class: "ui button"
-      
+      = link_to "記録する", new_record_path, class: "ui blue button"
+      - if current_page?(users_path)
+        = link_to "マイページ", user_path(@current_user), class: "ui button"
+      - else
+        = link_to "ランキング", users_path, class: "ui button"
+      = link_to "ログアウト", logout_path, method: :delete, data: {confirm: "ログアウトしますか？"}, class: "ui red button"

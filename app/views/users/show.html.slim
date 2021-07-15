@@ -36,5 +36,9 @@
           h5 自己紹介
         .ui.grid.ui.center.aligned.header
           p = @user.description
+  - if current_user.id == @user.id
+    .ui.grid
+      .column.ui.center.aligned.header
+        = link_to "編集", edit_user_path(@current_user), class: "ui button"
 
         

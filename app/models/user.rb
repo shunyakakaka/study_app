@@ -14,5 +14,5 @@ class User < ApplicationRecord
     message: "は1~100までの数値で入力してください"
   }
   validates :description, length: {maximum: 100}
-  validates :password, presence: true, length: {minimum: 6, maximum: 20}
+  validates :password, presence: true, length: {minimum: 6, maximum: 20}, on: :create
 end

@@ -70,6 +70,20 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    binding.pry
+    @user = current_user
+    if @user.update(user_params)
+      flash[:notice] = "編集しました"
+      redirect_to user_path(current_user)
+    else
+      flash[:error_message] = @user.errors.full_messages
+      flash[:user] = @user
+      redirect_to edit_user_path(current_user)
+    end
   end
 
   private
@@ -77,5 +91,10 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :sex, :age, :description, :job, :password, :password_confirmation)
   end
+
+  def update_params
+    params.require(:user).permit(:name, :sex, :age, :description, :job)
+  end
+
 
 end

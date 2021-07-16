@@ -1,8 +1,7 @@
-= render partial: "header_form"
-.ui.container 
-  - if flash[:notice]
-    .ui.success.message.ui.center.aligned.header
-      = flash[:notice]
+= render partial: "shared/header"
+
+= render partial: "shared/notice_message"
+
 .ui.container
   .ui.grid
     .column
@@ -36,8 +35,10 @@
           h5 自己紹介
         .ui.grid.ui.center.aligned.header
           p = simple_format(@user.description)
+
   - if current_user.id == @user.id
     .ui.grid
       .column.ui.center.aligned.header
         = link_to "編集", edit_user_path(@current_user), class: "ui button"
+        
   = render partial: "records/index"

@@ -1,28 +1,5 @@
-.ui.container 
-  - if flash[:error_message]
-    .ui.negative.message.ui.center.aligned.header
-      - flash[:error_message].each do |msg|
-        ul
-          li = msg
+= render partial: "shared/error_message"
 
-= render partial: "header_form"
+= render partial: "shared/header"
 
-.ui.container
-  .ui.form
-    = form_with model: @user, method: :patch do |f|
-      .field
-        = f.label :name
-        = f.text_field :name
-      .field
-        = f.label :sex
-        = f.text_field :sex
-      .field
-        = f.label :age
-        = f.text_field :age
-      .field
-        = f.label :description 
-        = f.text_area :description, rows: 10
-      .field
-        = f.label :job
-        = f.text_field :job
-      = f.submit "更新", class: "ui blue button"
+= render partial: "shared/form"

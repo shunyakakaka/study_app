@@ -1,0 +1,8 @@
+.ui.container
+  - if flash[:notice]
+    - if current_page?(login_path)
+      .ui.negative.message.ui.center.aligned.header
+        = flash[:notice]
+    - else
+      .ui.success.message.ui.center.aligned.header
+        = flash[:notice]

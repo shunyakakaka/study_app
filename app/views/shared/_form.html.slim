@@ -1,0 +1,30 @@
+.ui.container
+  .ui.form
+    = form_with model: @user do |f|
+      .field
+        = f.label :name, "名前（必須）"
+        = f.text_field :name, placeholder: "名前を入力してください"
+      .field
+        = f.label :sex
+        = f.text_field :sex, placeholder: "男または女で入力してください"
+      .field
+        = f.label :age
+        = f.text_field :age, placeholder: "半角で入力してください"
+      .field
+        = f.label :description 
+        = f.text_area :description, placeholder: "100文字以内で記入してください",rows: 10
+      .field
+        = f.label :job
+        = f.text_field :job, placeholder: "現在の職業を記入してください"
+      - if current_page?(new_user_path)
+        .field
+          = f.label :password, "パスワード（必須）"
+          = f.password_field :password, placeholder: "6文字以上で入力してください"
+        .field
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation, placeholder: "パスワード（確認）を入力してください"
+        = f.submit "登録", class: "ui blue button"
+        = link_to "戻る", root_path, class: "ui button"
+      - else 
+        = f.submit "更新", class: "ui blue button"
+  .ui.divider

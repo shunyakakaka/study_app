@@ -1,10 +1,6 @@
-.ui.container 
-  - if flash[:error_message]
-    .ui.negative.message.ui.center.aligned.header
-      - flash[:error_message].each do |msg|
-        ul
-          li = msg
-= render partial: "users/header_form"
+= render partial: "shared/error_message"
+
+= render partial: "shared/header"
 
 .ui.container
   .ui.form

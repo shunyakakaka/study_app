@@ -1,7 +1,4 @@
-.ui.container
-  - if flash[:notice]
-    .ui.negative.message.ui.center.aligned.header
-      = flash[:notice]
+= render partial: "shared/error_message"
 
 .ui.container
   .ui.grid

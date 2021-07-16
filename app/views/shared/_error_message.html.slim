@@ -1,0 +1,10 @@
+.ui.container
+  - if flash[:error_message]
+    - if current_page?(login_path)
+      .ui.negative.message.ui.center.aligned.header
+        = flash[:error_message]
+    - else
+      .ui.negative.message.ui.center.aligned.header
+        - flash[:error_message].each do |msg|
+          ul
+            li = msg

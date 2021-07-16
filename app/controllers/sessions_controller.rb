@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "#{user.name}でログインしました"
       redirect_to users_path
     else
-      flash[:notice] = "正しく入力してください"
+      flash[:error_message] = "正しく入力してください"
       redirect_to login_path
     end
   end

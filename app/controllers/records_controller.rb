@@ -10,7 +10,7 @@ class RecordsController < ApplicationController
 
   def create
     @record = @current_user.records.new(record_params)
-    #saveしているとsaveの後で代入しても変わらない
+    
     if @record.valid?
       if @current_user.records.all.length == 0
         @record.total_time = @record.time
@@ -18,9 +18,6 @@ class RecordsController < ApplicationController
         redirect_to user_path(@current_user)
       else
         before_record = @current_user.records.all.last
-        #@record.total_timeはnilであるため0を代入しないと計算できない
-        #defaultを0にすれば良いのでは？
-        #@record.total_time = 0
         @record.total_time += before_record.total_time
         @record.total_time += @record.time
         @record.save

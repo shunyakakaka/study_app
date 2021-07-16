@@ -60,3 +60,4 @@ gem 'semantic-ui-sass'
 gem 'slim-rails'
 gem 'html2slim'
 gem 'pry-rails'
+gem "need_label"

@@ -12,14 +12,14 @@ class SessionsController < ApplicationController
       redirect_to users_path
     else
       flash[:notice] = "正しく入力してください"
-      redirect_to root_path
+      redirect_to login_path
     end
   end
 
   def destroy
     session[:user_id] = nil
     flash[:notice] = "ログアウトしました"
-    redirect_to login_path
+    redirect_to root_path
   end
 
   def session_params

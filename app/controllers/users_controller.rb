@@ -3,26 +3,23 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    sum = 0
     i = 0
     k = 0
-    no_records_user = 0
-    first_index = 0
-    passed_user_index = []
     has_records_user = []
     no_records_user = []
-    same_number = []
     
     @users.each_with_index do |user, index|
-      #レコードテーブルを持ったユーザーのとレコードテーブルを持たないユーザーを分ている
       if user.records.all.last == nil
         no_records_user << user
       else
         has_records_user << user
       end
     end
+
     has_records_user = has_records_user.sort{|a, b| b.records.all.last.total_time <=> a.records.all.last.total_time}
+
     @users = has_records_user | no_records_user
+    
     @users.each_with_index do |user, index|
       if user.records.all.last == nil 
         if @users[index + 1] != nil

@@ -3,13 +3,13 @@
     .column
       .ui.message
         h1.ui.center.aligned.header Study Record
-        p このアプリは勉強記録アプリです
-        p 他のユーザーと競い合うことでモチベーションを上げていきましょう！
-        p アプリを使用するためにはログインまたはユーザー登録をしてください
+        p.ui.center.aligned.header このアプリは勉強記録アプリです
+        p.ui.center.aligned.header 他のユーザーと競い合うことでモチベーションを上げていきましょう！
+        p.ui.center.aligned.header アプリを使用するためにはログインまたはユーザー登録をしてください
   .ui.grid
     .three.column.row
-      .column.ui.right.aligned.header
-        = link_to "ログインする", login_path, class: "ui blue button"
       .column
+      .column
+        = link_to "ログインする", login_path, class: "ui blue button"
         = link_to "ユーザー登録", new_user_path, class: "ui blue button"
       .column

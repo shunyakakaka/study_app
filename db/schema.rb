@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 2021_07_08_075643) do
     t.string "job"
     t.text "description"
     t.integer "overall_ranking", default: 0
-    t.integer "group_ranking", default: 0
   end
 
   add_foreign_key "records", "users"
